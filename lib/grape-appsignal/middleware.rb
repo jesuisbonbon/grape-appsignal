@@ -24,10 +24,9 @@ module Appsignal
         metric_name = metric_name.gsub(/\/:?/, '.')
 
         action = "Grape"
-        action = action + "(#{api_endpoint.settings[:version].first})" if
-          api_endpoint.settings[:version] && api_endpoint.settings[:version].first
-        action = action + "(#{api_endpoint.settings[:root_prefix]})" if
-          api_endpoint.settings  && api_endpoint.settings[:root_prefix]
+
+        # action = action + "(#{api_endpoint.routes[:version].first})" if api_endpoint.routes[:version] && api_endpoint.routes[:version].first
+        # action = action + "(#{api_endpoint.routes[:root_prefix]})" if api_endpoint.routes  && api_endpoint.routes[:prefix]
 
         action = action + "::#{method_name}"
         #action = action.gsub(/  ?/, '/')
